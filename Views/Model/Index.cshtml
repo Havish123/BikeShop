@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BikeShop.Models.Model>;
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<br />
+<div class="row justify-content-between">
+
+    <div class="col-6">
+        <h2 class="text-info">Models of Vehicles</h2>
+    </div>
+    <div class="col-6 ">
+        <a class="btn btn-dark" asp-action="Create"><i class="fa-solid fa-motorcycle"></i> &nbsp; Add New Model</a>
+    </div>
+    <br />
+
+</div>
+<div class="row">
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <th>@Html.DisplayNameFor(m => m.Make)</th>
+            <th>@Html.DisplayNameFor(m => m.Name)</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr class="table-info">
+                <td> <i class="fa-solid fa-motorcycle"></i> &nbsp; @Html.DisplayFor( m=> item.Make.Name)</td>
+                <td> <i class="fa-solid fa-motorcycle"></i> &nbsp; @Html.DisplayFor( m=> item.Name)</td>
+                <partial name="_TableButtonPartial" model="item.Id" />
+            </tr>
+        }
+    </table>
+</div>

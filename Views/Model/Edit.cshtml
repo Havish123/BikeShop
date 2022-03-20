@@ -1,0 +1,38 @@
+﻿@model BikeShop.Models.ViewModels.BikeViewModel
+@using BikeShop.Extensions;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<br />
+<h2 class="text-info "> Edit Model of Vehicles</h2>
+
+<form method="post" action="Edit">
+    <input hidden asp-for="@Model.Makes" />
+    <input hidden asp-for="Model.Make" value="Model.Make" />
+    <input hidden asp-for="Model.Id" />
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Makes"></label>
+        </div>
+        <div class="col-4">
+            <select asp-for="Model.MakeId" asp-items="Model.Makes.ToSelectedListItem<Make>()" class="form-control"></select>
+        </div>
+
+    </div>
+    <br />
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Model.Name"></label>
+        </div>
+        <div class="col-4">
+            <input asp-for="Model.Name" class="form-control" />
+        </div>
+        <br /><br />
+        <div class="form-group">
+            <input type="submit" class="btn btn-dark" value="Update" />
+            <a asp-action="Index" class="btn btn-success">Back</a>
+        </div>
+    </div>
+</form>
